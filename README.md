@@ -46,9 +46,12 @@ Or copy a folder from `skills/` into your agent's skills directory (for Claude C
 
 ## Related skills that are not in this repository
 
-- **`h3-prompt-writing`** is MiniMax's own skill for the H3 prompt format. `minimax-h3-prompt` builds on the same format;
-  get the official one from its source.
-- **`yue2-music`** is the YuE2 authors' skill for song generation.
+- **[`h3-prompt-writing`](https://github.com/MiniMax-AI/MiniMax-H3/tree/main/skills/h3-prompt-writing)** is MiniMax's own
+  skill for the H3 prompt format, in the [MiniMax-AI/MiniMax-H3](https://github.com/MiniMax-AI/MiniMax-H3) repository.
+  `minimax-h3-prompt` builds on the same format.
+- **[`yue2-music`](https://github.com/multimodal-art-projection/YuE/tree/main/skills/yue2-music)** is the YuE2 authors'
+  skill for song generation, in the [multimodal-art-projection/YuE](https://github.com/multimodal-art-projection/YuE)
+  repository (Apache-2.0).
 
 ## Credits
 
