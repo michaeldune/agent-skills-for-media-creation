@@ -1,10 +1,18 @@
 # Agent Skills for Media Creation
 
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="Agent Skills for Media Creation: teach your coding agent to direct MiniMax H3, ComfyUI and SimpliGen. Shown beside the six sections of an H3 structured brief.">
+</p>
+
 Skills that teach a coding agent (Claude Code, Codex, Gemini CLI and others) how to direct AI video and image models.
 They come out of day-to-day work with SimpliGen and ComfyUI, mostly on MiniMax H3, and are
 written up from what actually worked on real renders.
 
 ## The skills
+
+<p align="center">
+  <img src="./assets/readme/skills.svg" width="100%" alt="How the three skills fit together: ai-filmmaker-director plans the shot, minimax-h3-prompt writes the structured brief, and vrgdg-music-video-builder builds a music video with one clip per lyric line.">
+</p>
 
 | Skill | What it does |
 |---|---|

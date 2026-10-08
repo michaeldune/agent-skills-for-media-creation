@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="470" viewBox="0 0 1200 470"
+     role="img" aria-labelledby="title desc">
+  <title id="title">How the three skills fit together</title>
+  <desc id="desc">Three stages. ai-filmmaker-director plans the shot: intent, one beat, frame, camera, performance, light, sound, continuity and end state. minimax-h3-prompt writes the structured H3 prompt so the right people appear, the camera stays put and mouths stop with the line. vrgdg-music-video-builder builds a music video of one clip per lyric line, with every cut checked against the vocal stem.</desc>
+
+  <rect width="1200" height="470" rx="26" fill="#101114"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif">
+
+    <!-- 1 plan -->
+    <g id="plan" transform="translate(48 44)">
+      <rect width="352" height="382" rx="18" fill="#1A1C21" stroke="#2C2F37" stroke-width="2"/>
+      <text x="28" y="48" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" letter-spacing="2" fill="#E8B04A">01  PLAN</text>
+      <text x="28" y="92" font-size="32" font-weight="700" fill="#F2EEE6">Plan the shot</text>
+      <text x="28" y="126" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8A8F98">ai-filmmaker-director</text>
+      <path d="M28 146 H324" stroke="#2C2F37" stroke-width="2"/>
+      <g font-size="21" fill="#F2EEE6">
+        <text x="28" y="186">intent</text>
+        <text x="186" y="186">one beat</text>
+        <text x="28" y="226">frame</text>
+        <text x="186" y="226">camera</text>
+        <text x="28" y="266">performance</text>
+        <text x="186" y="266">light</text>
+        <text x="28" y="306">sound</text>
+        <text x="186" y="306">continuity</text>
+        <text x="28" y="346" fill="#E8B04A">end state</text>
+      </g>
+    </g>
+
+    <!-- 2 prompt -->
+    <g id="prompt" transform="translate(424 44)">
+      <rect width="352" height="382" rx="18" fill="#1A1C21" stroke="#2C2F37" stroke-width="2"/>
+      <text x="28" y="48" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" letter-spacing="2" fill="#E8B04A">02  PROMPT</text>
+      <text x="28" y="92" font-size="32" font-weight="700" fill="#F2EEE6">Write the brief</text>
+      <text x="28" y="126" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8A8F98">minimax-h3-prompt</text>
+      <path d="M28 146 H324" stroke="#2C2F37" stroke-width="2"/>
+      <g stroke="#E8B04A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 180 l7 7 l13 -15"/>
+        <path d="M30 240 l7 7 l13 -15"/>
+        <path d="M30 300 l7 7 l13 -15"/>
+      </g>
+      <g font-size="21" fill="#F2EEE6">
+        <text x="66" y="188">The right people,</text>
+        <text x="66" y="214" fill="#B9B4AA">from your reference images</text>
+        <text x="66" y="248">A camera that stays put</text>
+        <text x="66" y="274" fill="#B9B4AA">unless you move it</text>
+        <text x="66" y="308">Mouths that stop</text>
+        <text x="66" y="334" fill="#B9B4AA">when the line ends</text>
+      </g>
+    </g>
+
+    <!-- 3 build -->
+    <g id="build" transform="translate(800 44)">
+      <rect width="352" height="382" rx="18" fill="#1A1C21" stroke="#2C2F37" stroke-width="2"/>
+      <text x="28" y="48" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" letter-spacing="2" fill="#E8B04A">03  BUILD</text>
+      <text x="28" y="92" font-size="32" font-weight="700" fill="#F2EEE6">Build the video</text>
+      <text x="28" y="126" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#8A8F98">vrgdg-music-video-builder</text>
+      <path d="M28 146 H324" stroke="#2C2F37" stroke-width="2"/>
+
+      <!-- vocal stem -->
+      <text x="28" y="182" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#8A8F98">vocal stem</text>
+      <path d="M28 216 l8 -14 l8 26 l8 -30 l8 34 l8 -22 l8 12 l8 -6 h22 l8 -18 l8 30 l8 -34 l8 38 l8 -26 l8 14 h30 l8 -12 l8 24 l8 -32 l8 30 l8 -20 l8 12 l8 -6 h20 l8 -16 l8 28 l8 -24 l8 12"
+            fill="none" stroke="#6FB3A8" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+      <!-- cut markers -->
+      <g stroke="#E8B04A" stroke-width="2">
+        <path d="M28 190 V300 M114 190 V300 M208 190 V300 M324 190 V300"/>
+      </g>
+
+      <!-- scenes -->
+      <g fill="#2C2F37">
+        <rect x="32" y="272" width="78" height="26" rx="5"/>
+        <rect x="118" y="272" width="86" height="26" rx="5"/>
+        <rect x="212" y="272" width="108" height="26" rx="5"/>
+      </g>
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#F2EEE6" text-anchor="middle">
+        <text x="71" y="291">1</text>
+        <text x="161" y="291">2</text>
+        <text x="266" y="291">3</text>
+      </g>
+
+      <text x="28" y="334" font-size="20" fill="#F2EEE6">One clip per lyric line,</text>
+      <text x="28" y="360" font-size="20" fill="#B9B4AA">every cut checked on the vocal</text>
+    </g>
+
+    <!-- connectors -->
+    <g stroke="#E8B04A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M404 235 H420 M414 229 l6 6 l-6 6"/>
+      <path d="M780 235 H796 M790 229 l6 6 l-6 6"/>
+    </g>
+  </g>
+</svg>
