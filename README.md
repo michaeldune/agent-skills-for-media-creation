@@ -59,7 +59,9 @@ Or copy a folder from `skills/` into your agent's skills directory (for Claude C
   ["MiniMax H3 Epic Character PV"](https://www.runninghub.ai/post/2095032985100173313) method shown by
   [Smart Bobo](https://www.youtube.com/@Smart-Bobo-AI) (机智波玩ai).
 - `ai-filmmaker-director`: adapted from the "AI Filmmaker Director" skill document shared by Magnavex on the SimpliGen
-  Discord, which was built from the infographic "How to Prompt Like an AI Filmmaker" by Shailesh (@BEGINNERSBLOG).
+  Discord, which was built from the infographic
+  ["How to Prompt Like an AI Filmmaker"](https://x.com/beginnersblog1/status/2105685837812007258) by Shailesh
+  ([@beginnersblog1](https://x.com/beginnersblog1), [OpenAILearning](https://openailearning.org/)).
 - `vrgdg-music-video-builder`: written for the Music Video Builder in
   [comfyui-vrgamedevgirl](https://github.com/vrgamegirl19/comfyui-vrgamedevgirl) by VRGameDevGirl.
 
