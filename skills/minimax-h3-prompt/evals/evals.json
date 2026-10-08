@@ -1,0 +1,50 @@
+{
+  "skill_name": "minimax-h3-prompt",
+  "evals": [
+    {
+      "id": 0,
+      "name": "multi-character-wide",
+      "prompt": "I need a 5 second wide shot of my band playing on a club stage for a music video. I have separate reference photos of all five of them plus a photo of the stage. Last time I tried this the model just made up five random people. Write me the H3 prompt.",
+      "expected_output": "A six-section Ref2VA brief with one <Subject N> per person bound to its own <Picture N>, fully_preserved retention lines for each, explicit stage positions, and a locked-off camera stated as 'the frame never moves' plus prohibited moves.",
+      "files": [],
+      "assertions": [
+        "Uses the six-section reference format, with all six sections present and in order (subject_definitions, summary, retention_analysis, detailed_description, overall_soundscape, non_diegetic_music)",
+        "Defines a separate <Subject N> for each of the five band members",
+        "Binds each band member to their own distinct <Picture N> rather than one shared reference",
+        "Every <Subject N> defined in subject_definitions also appears in retention_analysis",
+        "Marks the human subjects fully_preserved",
+        "[Shot 1] carries no timestamp",
+        "States the locked-off camera explicitly and names moves that must not happen"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Write me a MiniMax H3 prompt: 8 seconds, two people arguing across a kitchen table at night, she accuses him of lying and he denies it, then it cuts to a close up of her hands. No reference images, just text.",
+      "expected_output": "A T2VA three-field brief: integrated_multimodal_description with [Shot 1] untimed and [Shot 2] At MM:SS.mmm, stable (S1)/(S2) speaker IDs established outside the tags, dialogue inside <d>[English] ...</d>, lips closing described when speech ends, camera specified per shot, plus overall_soundscape and non_diegetic_music.",
+      "files": [],
+      "assertions": [
+        "Uses the three-field base format (integrated_multimodal_description, overall_soundscape, non_diegetic_music)",
+        "Includes no frame-alignment instruction line, which T2VA does not take",
+        "[Shot 1] carries no timestamp and the second shot carries one in MM:SS.mmm form",
+        "The second shot's timestamp falls inside the 8-second duration",
+        "Both speakers have stable IDs such as (S1) and (S2)",
+        "All spoken words sit inside <d>[English] ...</d> tags",
+        "Describes the lips closing or speaking motion ceasing when a line ends",
+        "Specifies camera motion in each shot"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I've got a still of a woman standing at a window and I want a 6 second clip that starts exactly on that image and then she turns around and walks out of frame. h3 prompt please",
+      "expected_output": "An I2VA brief: the fixed alignment instruction line first ('For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.'), one blank line, then the three core fields with a specified camera move and an observable end state.",
+      "files": [],
+      "assertions": [
+        "Opens with the exact I2VA alignment instruction naming <Picture 1> and the 0.00-second mark",
+        "Separates that instruction from the core fields with a blank line",
+        "Uses the three-field base format rather than the six-section reference format",
+        "Specifies camera motion",
+        "Gives the action an observable end state (she is out of frame)"
+      ]
+    }
+  ]
+}
