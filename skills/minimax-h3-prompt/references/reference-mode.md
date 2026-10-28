@@ -123,6 +123,67 @@ non_diegetic_music:
 None.
 ```
 
+## A sung shot from a vocal stem
+
+To make a performer sing a real song in sync, attach the song's **vocal stem**
+(separated with demucs, cut to the shot) as `<Audio 1>` and write its lyrics
+with their measured times into the brief. H3 returns the stem as the clip's
+soundtrack almost verbatim (waveform correlation 0.94 after the audio VAE round
+trip) and lip syncs the performer to it. Tested on two reference-to-video
+checkpoints, three seeds each, 11.5 s at 480p, with a 3.5 s gap between two
+sung lines; watched and judged in sync on both.
+
+The parts of the brief that do it (the lyric is a placeholder):
+
+```text
+<Audio 1> is the sung vocal of <Subject 1> (S1) for this shot: two sung English lines with a silence between them.
+...
+<Audio 1>: reference - its sung vocal, melody, words and timing are performed by <Subject 1>.
+...
+[Shot 1] A medium close-up frames <Subject 1> from the chest up, holding the microphone just below her chin so her mouth stays fully visible. At 00:00.500 <Subject 1> (S1) sings <d>[English] the first line, word for word as sung</d> and at 00:03.860 her lips close completely and all singing motion stops. From 00:03.860 to 00:07.360 ...
+```
+
+- Take every start and end time from the stem itself (forced-aligned word
+  timings on the stem), relative to the cut, and give every gap a closed-lips
+  end state.
+- Keep the mouth visible: the microphone below the chin, framing chest-up or wider.
+- The verbatim copy seems tied to the brief's lyrics matching the audio: a plain
+  voice clip with different words is not copied, it only lends its timbre. That
+  link is a guess, not tested.
+- Untested: the full mix instead of the stem, the stem with backing at -14 dB,
+  lyrics that differ from the audio, two or more singers, 768p, 15 s shots.
+
+## Voice references for speakers
+
+When a speaker's voice comes from a reference clip (`<Audio N>` as a
+voice-timbre reference, one per speaker), two rules from Cosmo-Edge Labs'
+[MiniMax H3 Dialogue: From Robotic to Near-Studio Voices](https://www.youtube.com/watch?v=7LXAhgvaoVA):
+
+- **Attach the voice references in the order the characters first speak.**
+  The first speaker's voice is `<Audio 1>`, the second's `<Audio 2>`.
+- **Use uncompressed WAV taken from the source, never MP3.** H3 copies the
+  whole sound of a timbre reference, compression artifacts included, so an MP3
+  reference gives a muffled, metallic voice. Converting an MP3 to WAV does not
+  help; the WAV must come from the original recording or a generation exported
+  as WAV. A good reference is one isolated voice: no music, no background
+  noise, no room echo, a steady level.
+
+Both confirmed here (turbo reference-to-video checkpoint, 480p, 8 s, two seeds
+per arm):
+
+- **Order.** Two women at a table, voice references that differ only in pitch
+  (174 Hz and 211 Hz), each `<Audio N>` explicitly bound to its subject in
+  subject_definitions and retention_analysis. Attached in speaking order, each
+  woman got her own voice on both seeds. Attached in reverse order, with the
+  labels rewritten so every binding was still correct, the voices swapped on
+  both seeds. H3 gives the first-attached voice to the first speaker whatever
+  the labels say. With a woman and a man the gender in the prompt won and no
+  swap showed, so a mixed pair hides the problem rather than avoiding it.
+- **Format.** The same voice as WAV and as a 32 kbps MP3, same prompt and
+  seeds: the MP3 renders kept 0.01-0.02% of the speech energy above 6 kHz,
+  against 0.71-0.89% for WAV. Words and pitch were unchanged. That is a
+  measurement of lost top end, not a listening test.
+
 ## Practical notes
 
 - **One reference per person** is what makes a cast shot work. Purpose-built
@@ -130,8 +191,8 @@ None.
   the wrong framing and lighting into the new shot.
 - **State each subject's position** ("stage left", "behind and slightly left of")
   and say explicitly that everyone stays in place, or they wander.
-- H3 does **not** lip sync to supplied music. If the shot needs mouths matched to
-  a song, that is a different tool; H3 wides belong over instrumental passages.
+- For a performer singing a supplied song, use the vocal-stem route above. A wide
+  with no visible mouths still belongs over an instrumental passage.
 - Reference encoding costs real time. Six references took ~1m40s on a distilled
   model versus ~2m20s for one image, and ~27 min on the full model. The
   identities come from the references and the brief, not from the larger model —

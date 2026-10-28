@@ -17,9 +17,9 @@ works for one can fail on another.
 1. Find out the target model and mode (text-to-video, image-to-video, text-to-image, image edit). If the user
    did not say and it changes the answer, ask once; otherwise assume a prose-prompt model.
 2. If a prompt skill for that model is available, do the shot planning here (steps below), then hand the plan to
-   that skill to write the final prompt in its format. Known examples: `minimax-h3-prompt`, `h3-prompt-writing`
-   and `dynamic-ad-camera-minimax-h3` for MiniMax H3 / Hailuo; `cinema-director-v3` for Seedance and Higgsfield
-   video; `banana-pro-director-30` for Higgsfield images. Their format rules win over the templates below.
+   that skill to write the final prompt in its format. For MiniMax H3 / Hailuo that is `minimax-h3-prompt` (in this
+   repository) or MiniMax's own `h3-prompt-writing`; use whatever prompt skill is installed for other models such as
+   Seedance, Higgsfield or Nano Banana. Their format rules win over the templates below.
 3. If no such skill exists, write the final prompt here using the templates below.
 
 ## Plan the shot

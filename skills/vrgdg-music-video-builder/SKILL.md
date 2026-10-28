@@ -33,7 +33,7 @@ settings below are from that machine.
 
 1. **Transcribe** with the wizard (needs `demucs`, `stable-ts`, `openai-whisper` in the venv).
 2. **Check timing before any render.** Run `scripts/vocal_cut_strip.py`. Fix what it flags and show the user the list.
-   His ear decides every boundary. Read `references/timing.md`.
+   The user's ear decides every boundary. Read `references/timing.md`.
 3. **Plan the shot list.** Pick a shot type for every scene from the table in `references/prompts.md` (close-up,
    medium, solo cutaway, two-shot, three-shot, over-the-shoulder, short full-band wide, instrument detail, empty room),
    keep every face that matters at about 90 px or taller, apply the rotation rules below, and show the user the
@@ -55,6 +55,10 @@ settings below are from that machine.
   that takes a hand off the instrument.
 - Two singer shots in a row: different framing and location, motion in the same direction.
 - An instrumental break gets the instrument that plays it. Ask the user which one; you cannot hear it.
+- Who to cut to: the six-stem Demucs model (`htdemucs_6s`) shows WHEN the voice, drums, bass or "something melodic" is
+  carrying a stretch, to the half second. It does NOT tell guitar from keyboards on electronic songs (2 of 4 stretches
+  right against the ear in one test). A working rule: a melodic stretch with no clear guitar is probably the keyboards.
+  Ask the user by timestamp when it matters, and record the answer in the song's `video-notes.md`.
 
 ## What to check on every clip
 
@@ -65,12 +69,38 @@ settings below are from that machine.
 4. Extra objects: a second person, text on screens, smoke or glass in front of a face. A microphone on a stand beside a
    band member who sings backup is NOT a fault (see Backing vocals in `references/prompts.md`).
 5. Faces at native pixels before saying anything about identity.
+6. Every band member standing at a microphone, over time: in a cutaway rendered with the full song, any of them may
+   mouth the lead vocal despite "lips closed and still". A retake with the scene's audio muted fixed it.
+7. Invented people. An empty aisle or space behind a close-up invites H3 to walk musicians into it; one sentence naming
+   that space's end state ("stays empty, only cabinets and haze") plus the walk-in as a prohibition cleared it on 3 of 3
+   takes. An unmanned instrument or a bystander near one in the source image becomes a player. Once one invented person
+   turns up, sweep EVERY scene of that kind against its source image before re-delivering, not just the one reported.
+
+## Sparks, streaks and glassy smoke that survive retakes
+
+On one song six scenes over loud, distorted passages kept white sparks or glass streaks through four takes, two
+locations and three wordings. A same-seed, same-prompt control showed the cause: the locked song slice. With silence in
+place of the song, the affected cutaways all came out clean.
+
+- For a NO-LIP-SYNC cutaway with this fault: scene > Audio > Open Scene Audio Options > "Use Silence For This Scene",
+  render, then CLEAR the scene audio again. The silent take has no sound, so lay the song back over the clip before
+  the stitch. Expect less movement than with the song, and check the player is still playing.
+- The button makes silence at the 2-decimal duration, and a scene of 6.2917 s then fails in 0 s with "extends beyond
+  the available source audio". Make the WAV slightly longer than the scene and set it in the session file.
+- Sung scenes: give the scene ONLY THE VOCAL STEM slice as its audio (write the WAV into `scene_audio\` and set
+  `custom_audio_*` in the session file). On three scenes this removed the glow and the mouth still followed the words
+  (the user judges the sync). Then lay the full song back over the clip.
+- Laying the song back: cut it from the song WAV at the scene's start for the clip's length. Do NOT copy it from the
+  "previous take" path: after a re-render that path holds the new silent clip.
+- Never write "no sparks, no smoke" into the prompt: naming the fault produced literal showers of sparks.
+- After any batch, read the newest `render_logs\*.txt` Status line (PARTIAL means a scene failed) and check clip
+  modified times before judging clips.
 
 ## Reporting
 
 - Say what you checked on stills only. Lip sync and whether a shot fits the music are for the user to judge.
 - You cannot hear the song. A vocal-stem strip shows where singing is, not what is sung or whether it is a scream.
-- Give times as he sees them in the video (m:ss), with the scene number.
+- Give times as the user sees them in the video (m:ss), with the scene number.
 - After a stitch, state the audio lag and the worst scene offset from `check_stitch.py`.
 
 ## Files

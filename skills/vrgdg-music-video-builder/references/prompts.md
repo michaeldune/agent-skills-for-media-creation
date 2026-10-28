@@ -194,5 +194,9 @@ guitarist who sings backup. One take only.
 - After every write, assert each of the six headers appears exactly once and `[Shot 1] ` appears exactly once, then print
   one full prompt and read it.
 - Back up the session file before each script run.
+- List each scene's subjects in the Builder's own cast order (the order of `flux_reference_builder.subjects`) and number
+  `<Subject N>` to match. Render All refused a whole batch because two scenes listed the same performers in a different
+  order ("<Picture 1> names keyboardist, but that subject is now <Picture 2>"). Assert the order in the generator, and
+  render a 5-6 scene test of each shot type before the full batch.
 - One take proves nothing about a sentence: the same prompt and seed re-render differently. Do not tell the user a phrase
   caused a fault unless a control reproduces it.

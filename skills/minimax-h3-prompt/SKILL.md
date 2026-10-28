@@ -63,7 +63,12 @@ Read `references/base-mode.md` for T2VA/I2VA/FL2VA/L2VA, including the exact
 alignment instruction lines, which are fixed wording.
 
 Read `references/reference-mode.md` for Ref2VA — the six sections, the retention
-markers, and a full worked example.
+markers, and a full worked example. A performer **singing a supplied song** is
+Ref2VA too: its vocal stem goes in as `<Audio 1>`, see "A sung shot from a vocal
+stem" there. For speakers whose voices come from reference clips, read "Voice
+references for speakers" there: attach voices in the order the characters
+first speak (tested: H3 ignores the labels and swaps voices otherwise) and use
+WAV, not MP3.
 
 For a **character PV** (a 15-second, 13-shot anime-style character reveal with
 kinetic typography cards, driven by one design-sheet reference), use the two
@@ -102,7 +107,9 @@ which is why "static" shots come back wandering. Name one move, its amplitude an
 speed, and what visibly changes because of it: *"The camera pushes in with small
 amplitude at slow speed toward her hands."* For a locked-off shot, say **"the
 frame never moves"** and list what must not happen — no pan, no push-in, no
-reframing. Saying "the camera does not move" is weaker and often ignored.
+reframing. Saying "the camera does not move" is weaker and often ignored. Never
+stack moves that contradict each other in one beat (locked-off plus orbit plus
+handheld shake): H3 renders an average of them, which is none of them.
 
 **Beats.** Give each beat one primary change and an observable end state
 something a viewer could point at — an empty surface, a door now closed. Budget
@@ -138,7 +145,8 @@ appearance: type, age, gender, on- or off-screen, pitch, timbre, rate, accent.
 Then all spoken content goes inside `<d>[Language] The actual words.</d>` with a
 real language tag (Arabic, Chinese, English, French, German, Italian, Japanese,
 Korean, Portuguese, Russian, Spanish). Reproduce the words verbatim — never
-translate or paraphrase inside `<d>`.
+translate or paraphrase inside `<d>`. Place each line after the action or event
+that motivates it in the timeline, not before it.
 
 Two details that fix visible artefacts: **describe the lips closing and the
 speaking motion ceasing** when a line ends, or the mouth keeps moving; and for
@@ -179,6 +187,28 @@ the audio continues across the cut. Mark speech cut off by the end with
 the room. `non_diegetic_music` is score only the audience hears. If there is no
 score, write `None.` rather than omitting the field.
 
+- **`None.` works for the score, not for the soundscape.** `non_diegetic_music:
+  None.` kept music out on two test renders, but `overall_soundscape: None.`
+  does not buy silence: H3 always writes an audio track, and with nothing named
+  it invented hiss and stray sound events (measured, two checkpoints). Name
+  what should be heard (*"light wind, footsteps on concrete"*) and H3 renders
+  that. For a truly silent clip, strip the audio afterwards
+  (`ffmpeg -i in.mp4 -c:v copy -an out.mp4`).
+- **Anything written in the prompt can be spoken.** Plain English in any field
+  can end up voiced into spare time after a short line, including boilerplate a
+  workflow adds to your prompt without you seeing it. When a render has extra
+  words, check them against every string the workflow injects, and keep
+  injected markers bare (for example `<Audio 1>: fully_copy` with no
+  explanation after it).
+- **The soundscape can add people.** A solo close-up of one musician grew the
+  rest of the band at the frame edges on every take when the prompt said
+  "concert footage" and the soundscape named drums, bass and guitar; a new seed
+  and "no other musician enters" did not help. What cleared it: "footage of the
+  drummer, alone", a soundscape naming only that instrument, a positive
+  description of what stands beside them, and "the frame never moves". When a
+  fault survives a seed change, it is in the inputs: look for anything in the
+  brief that names the intruder.
+
 ## Step 4 — Check it before spending GPU time
 
 A brief is cheap to fix and a render is not. Before submitting, confirm:
@@ -194,6 +224,12 @@ A brief is cheap to fix and a render is not. Before submitting, confirm:
   and a timestamp for the reaction (see "Interaction" in Step 3)
 - in reference mode: all six sections present, in order, and every `<Subject N>`
   defined in `subject_definitions` also appears in `retention_analysis`
+
+A low-resolution, few-step draft is worth running first, but it confirms only
+the timing and the words. It does not predict who lip syncs a line or how a
+performance plays at full quality (a 480p draft kept a listener's lips closed
+on four seeds; the 768p render of one of them had her mouthing the other
+speaker's words), so check every mouth again on the final render.
 
 ## What this buys you, and when to reach for it
 
