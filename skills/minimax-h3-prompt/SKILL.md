@@ -111,6 +111,12 @@ reframing. Saying "the camera does not move" is weaker and often ignored. Never
 stack moves that contradict each other in one beat (locked-off plus orbit plus
 handheld shake): H3 renders an average of them, which is none of them.
 
+For a tight shot, write the size outright and where it starts: H3 opens
+wider than asked when a reference picture is wider. "Starts already framed
+from the waist up" still opened wide on a wide garden picture, while a
+close-up framing choice plus "starts already tight on the face and
+shoulders" opened tight on four of four takes.
+
 **Beats.** Give each beat one primary change and an observable end state
 something a viewer could point at — an empty surface, a door now closed. Budget
 roughly four seconds for anything involving a prop change or hand-off. Put the
@@ -137,6 +143,23 @@ him*. Any beat where two characters react to each other needs all three of:
 Give the reaction a physical cause where you can (coins held up in a hand give
 her something to walk back to), and once you have seen a specific failure, name
 that exact behaviour as a prohibition ("she never walks off toward the camera").
+
+**Name only what the frame holds.** A thing the brief names tends to be
+drawn, whatever "off frame" says: "a caged work lamp off frame" put a
+blown-out caged lamp in the shot. For light from outside the frame, write
+only the glow and its direction ("a dim warm glow from off frame, low at
+frame left"), and say what stands beside a lone subject rather than who must
+not appear. The sound line works the same way (see "The soundscape can add
+people" under Sound).
+
+**Keep the eyes off the lens.** An eye line to someone off screen renders as
+a look into the lens: "looks straight at him" did it in a single close-up,
+and a short prompt with no acting in it stared blank into the lens from 3 s.
+Place the partner in frame terms and give the eyes something to do: "turns
+her head to her right, toward him off-screen at the left edge of frame, her
+eyes on him just past the side of the lens; she never looks into the
+camera", with natural blinks. On the same seed that wording kept her eyes
+off the lens for the whole shot.
 
 **Speakers and dialogue.** Every vocal source gets a stable ID — `(S1)`, `(S2)`,
 `(S1,S2)` for simultaneous speech — kept consistent across shots. Characters who
@@ -178,6 +201,17 @@ talking"* — does not remove the extra words, it **relocates them to the
 unclaimed remainder**: tested, and the invented words moved from before the line
 to after it. Modal phrasing (*"she should close her mouth"*) is also weaker than
 describing the closure happening.
+
+**Write behaviour, not thoughts.** H3 can voice any phrase that sits near a
+speaking act. "Then he shouts his one line once" came back as "One line
+once. I won!", and an inner thought written into the action ("a costume on
+her roster") came back as "...a roster named..." until it was rewritten as
+what the eyes and body do: "her eyes search it, flick to the trail, come
+straight back and search it again, while her hands stay easy on the wheel".
+Describe the act ("he throws his head back and shouts with joy"), keep
+"line", "once" and any paraphrase of the words away from the speaking verb,
+and open a dialogue shot with the person and the action, not a phrase that
+could be spoken.
 
 When a line crosses a cut, put `<scenetrans>` at both connection points and say
 the audio continues across the cut. Mark speech cut off by the end with
@@ -230,6 +264,12 @@ the timing and the words. It does not predict who lip syncs a line or how a
 performance plays at full quality (a 480p draft kept a listener's lips closed
 on four seeds; the 768p render of one of them had her mouthing the other
 speaker's words), so check every mouth again on the final render.
+
+After the render: transcribe it and compare the words with the line (Whisper
+invents phrases such as "thank you for watching" on noise, so watch the mouth
+before calling a sound speech), check the eyes against the lens, and compare
+frame 3 with each reference picture, since a clip can open on a reference
+photo and dissolve into the scene without a hard cut.
 
 ## What this buys you, and when to reach for it
 
