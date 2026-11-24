@@ -105,9 +105,15 @@ change, move the camera instead of cutting.
 **Camera — always state it.** Left unsaid, H3 drifts and reframes continuously,
 which is why "static" shots come back wandering. Name one move, its amplitude and
 speed, and what visibly changes because of it: *"The camera pushes in with small
-amplitude at slow speed toward her hands."* For a locked-off shot, say **"the
-frame never moves"** and list what must not happen — no pan, no push-in, no
-reframing. Saying "the camera does not move" is weaker and often ignored. Never
+amplitude at slow speed toward her hands."* For a locked-off shot, open the
+camera line with **"Locked-off composition, … fixed camera, no reframing."**
+(adding "tripod" is fine). Tested 2026-11-24 on a 2-step and an 8-step H3
+checkpoint, text to video, two seeds: that wording held the frame to 1-3 px of
+drift over 5 s, while "the frame never moves: no pan, no push-in, no
+reframing" on its own crept and pushed in by 14-38 px on every take. Keeping
+"the frame never moves" after the lock wording does no harm. Saying "the
+camera does not move" is weaker still. What H3 does with lens, gear and phone
+words is in `references/camera-capture.md`. Never
 stack moves that contradict each other in one beat (locked-off plus orbit plus
 handheld shake): H3 renders an average of them, which is none of them.
 

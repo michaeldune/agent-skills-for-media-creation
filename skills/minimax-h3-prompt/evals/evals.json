@@ -5,7 +5,7 @@
       "id": 0,
       "name": "multi-character-wide",
       "prompt": "I need a 5 second wide shot of my band playing on a club stage for a music video. I have separate reference photos of all five of them plus a photo of the stage. Last time I tried this the model just made up five random people. Write me the H3 prompt.",
-      "expected_output": "A six-section Ref2VA brief with one <Subject N> per person bound to its own <Picture N>, fully_preserved retention lines for each, explicit stage positions, and a locked-off camera stated as 'the frame never moves' plus prohibited moves.",
+      "expected_output": "A six-section Ref2VA brief with one <Subject N> per person bound to its own <Picture N>, fully_preserved retention lines for each, explicit stage positions, and a locked-off camera stated as 'Locked-off composition, fixed camera, no reframing' (optionally followed by 'the frame never moves' and the prohibited moves).",
       "files": [],
       "assertions": [
         "Uses the six-section reference format, with all six sections present and in order (subject_definitions, summary, retention_analysis, detailed_description, overall_soundscape, non_diegetic_music)",
