@@ -35,8 +35,17 @@ contact sheets. One scene and two seeds: treat these as strong hints, not law.
   a tripod" alone held the frame only loosely (about 2 px); the lock wording
   above is what holds it.
 - **"Handheld ... smartphone footage, small operator adjustments" adds no
-  shake.** Jitter matched the plain control. For deliberate shake, try H3's own
-  move vocabulary ("Shake Slightly"); that is untested here.
+  shake.** Jitter matched the plain control.
+- **"Shake Slightly" adds no shake either; "shakes strongly" does.** Tested on
+  the 2-step checkpoint, same scene and seeds: "the camera shakes slightly
+  throughout the shot" and "Camera move: Shake Slightly." both gave
+  frame-to-frame jitter of 0.06-0.08 (plain control 0.10, locked-off 0.01),
+  with less drift than the control (8-15 px vs 29-30 px), so they read as a
+  near-still camera. "The camera shakes strongly throughout the shot" gave
+  jitter 0.43 on both seeds (four times the control) and a wandering
+  86-116 px path, a visible handheld wobble, with the picture and the action
+  intact. For a handheld look, write "shakes strongly"; there is no tested
+  middle setting yet.
 - **Plain-words selfie draws the phone.** "She holds her phone out at arm's
   length and films herself; the picture is what that phone's front camera
   sees" rendered a third-person shot of a woman holding a phone, on both
