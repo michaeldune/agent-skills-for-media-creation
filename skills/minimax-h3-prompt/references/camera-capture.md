@@ -44,8 +44,10 @@ contact sheets. One scene and two seeds: treat these as strong hints, not law.
   near-still camera. "The camera shakes strongly throughout the shot" gave
   jitter 0.43 on both seeds (four times the control) and a wandering
   86-116 px path, a visible handheld wobble, with the picture and the action
-  intact. For a handheld look, write "shakes strongly"; there is no tested
-  middle setting yet.
+  intact. On the 8-step checkpoint the same wording gave jitter 0.28 and
+  0.76 against a control of 0.06 (5x and 13x), clean frames and the action
+  intact; how strong it comes out varies more by seed there. For a handheld
+  look, write "shakes strongly"; there is no tested middle setting yet.
 - **Plain-words selfie draws the phone.** "She holds her phone out at arm's
   length and films herself; the picture is what that phone's front camera
   sees" rendered a third-person shot of a woman holding a phone, on both
