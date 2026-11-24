@@ -68,9 +68,10 @@ Zoom In/Out · Push In/Pull Out · Pan Left/Right · Truck Left/Right ·
 Tilt Up/Down · Pedestal Up/Down · Arc Shot · Tracking Shot · Static Shot ·
 Shake Slightly/Strongly · POV · Roll Clockwise/Counterclockwise
 
-(Tested 2026-11-24: Shake Slightly renders as a near-still camera; only Shake
-Strongly gives visible handheld wobble. Lens, gear and phone words do nothing
-visible. See `camera-capture.md`.)
+(Tested 2026-11-24: Shake Slightly renders as a near-still camera; Shake
+Strongly gives visible handheld wobble. "Shakes moderately" gives a gentler
+wobble on an 8-step checkpoint but nothing on a 2-step one. Lens, gear and
+phone words do nothing visible. See `camera-capture.md`.)
 
 Write the move as natural English action within the shot, giving motion type +
 amplitude + speed where it matters — medium amplitude and normal speed can be

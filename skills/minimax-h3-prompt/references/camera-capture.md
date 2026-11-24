@@ -47,7 +47,19 @@ contact sheets. One scene and two seeds: treat these as strong hints, not law.
   intact. On the 8-step checkpoint the same wording gave jitter 0.28 and
   0.76 against a control of 0.06 (5x and 13x), clean frames and the action
   intact; how strong it comes out varies more by seed there. For a handheld
-  look, write "shakes strongly"; there is no tested middle setting yet.
+  look, write "shakes strongly".
+- **A medium shake depends on the checkpoint.** On the 2-step checkpoint the
+  shake is an on/off switch that only "strongly" turns on: "shakes
+  moderately", "shakes with medium amplitude", "shakes noticeably" and
+  "handheld camera, the picture bobs and sways gently" all stayed at the
+  control's level (jitter 0.06-0.12), and "shakes strongly with small
+  amplitude" came out the same as plain "strongly" (0.42-0.44), so amplitude
+  words do not scale it. On the 8-step checkpoint, "the camera shakes
+  moderately throughout the shot" does give a visible wobble (jitter 0.21 and
+  0.28 against a control of 0.06, clean frames): gentler than "strongly" on
+  one seed, about the same on the other. For a gentler handheld look, try
+  "moderately" on a full-step checkpoint; on a heavily distilled one there may
+  be no middle wording, so pick "strongly" or a near-still camera.
 - **Plain-words selfie draws the phone.** "She holds her phone out at arm's
   length and films herself; the picture is what that phone's front camera
   sees" rendered a third-person shot of a woman holding a phone, on both
