@@ -107,8 +107,8 @@ which is why "static" shots come back wandering. Name one move, its amplitude an
 speed, and what visibly changes because of it: *"The camera pushes in with small
 amplitude at slow speed toward her hands."* For a locked-off shot, open the
 camera line with **"Locked-off composition, … fixed camera, no reframing."**
-(adding "tripod" is fine). Tested 2026-11-24 on a 2-step and an 8-step H3
-checkpoint, text to video, two seeds: that wording held the frame to 1-3 px of
+(adding "tripod" is fine). Tested 2026-11-24 on two different H3
+checkpoints, text to video, two seeds: that wording held the frame to 1-3 px of
 drift over 5 s, while "the frame never moves: no pan, no push-in, no
 reframing" on its own crept and pushed in by 14-38 px on every take. Keeping
 "the frame never moves" after the lock wording does no harm. Saying "the

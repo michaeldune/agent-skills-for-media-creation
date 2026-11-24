@@ -4,8 +4,11 @@ What H3 does with cinematography vocabulary: focal lengths, camera gear,
 phone footage, selfie framing. Each line below was rendered, not assumed.
 
 Test (2026-11-24): one cafe scene (a woman sipping coffee by a rainy window),
-text to video, 864x480, 5 s, two seeds, on a 2-step distilled H3 checkpoint,
-with the lock wording repeated on an 8-step one. Camera motion was measured as
+text to video, 864x480, 5 s, two seeds, on two different H3 checkpoints:
+checkpoint A (a 2-step distill) for every arm, and checkpoint B (a separate
+8-step model) for the lock and shake arms. A and B differ in more than step
+count, so where they disagree below, that says only that results vary by
+checkpoint, not that step count is the cause. Camera motion was measured as
 the median optical-flow path over the clip; framing and gear were judged from
 contact sheets. One scene and two seeds: treat these as strong hints, not law.
 
@@ -37,29 +40,30 @@ contact sheets. One scene and two seeds: treat these as strong hints, not law.
 - **"Handheld ... smartphone footage, small operator adjustments" adds no
   shake.** Jitter matched the plain control.
 - **"Shake Slightly" adds no shake either; "shakes strongly" does.** Tested on
-  the 2-step checkpoint, same scene and seeds: "the camera shakes slightly
+  checkpoint A, same scene and seeds: "the camera shakes slightly
   throughout the shot" and "Camera move: Shake Slightly." both gave
   frame-to-frame jitter of 0.06-0.08 (plain control 0.10, locked-off 0.01),
   with less drift than the control (8-15 px vs 29-30 px), so they read as a
   near-still camera. "The camera shakes strongly throughout the shot" gave
   jitter 0.43 on both seeds (four times the control) and a wandering
   86-116 px path, a visible handheld wobble, with the picture and the action
-  intact. On the 8-step checkpoint the same wording gave jitter 0.28 and
+  intact. On checkpoint B the same wording gave jitter 0.28 and
   0.76 against a control of 0.06 (5x and 13x), clean frames and the action
   intact; how strong it comes out varies more by seed there. For a handheld
   look, write "shakes strongly".
-- **A medium shake depends on the checkpoint.** On the 2-step checkpoint the
+- **A medium shake depends on the checkpoint.** On checkpoint A the
   shake is an on/off switch that only "strongly" turns on: "shakes
   moderately", "shakes with medium amplitude", "shakes noticeably" and
   "handheld camera, the picture bobs and sways gently" all stayed at the
   control's level (jitter 0.06-0.12), and "shakes strongly with small
   amplitude" came out the same as plain "strongly" (0.42-0.44), so amplitude
-  words do not scale it. On the 8-step checkpoint, "the camera shakes
-  moderately throughout the shot" does give a visible wobble (jitter 0.21 and
-  0.28 against a control of 0.06, clean frames): gentler than "strongly" on
-  one seed, about the same on the other. For a gentler handheld look, try
-  "moderately" on a full-step checkpoint; on a heavily distilled one there may
-  be no middle wording, so pick "strongly" or a near-still camera.
+  words do not scale it. On checkpoint B, "the camera shakes moderately
+  throughout the shot" does give a visible wobble (jitter 0.21 and 0.28
+  against a control of 0.06, clean frames): gentler than "strongly" on one
+  seed, about the same on the other. For a gentler handheld look, try
+  "moderately" and measure it on your own checkpoint; if it gives no shake,
+  that checkpoint has no middle wording, so pick "strongly" or a near-still
+  camera.
 - **Plain-words selfie draws the phone.** "She holds her phone out at arm's
   length and films herself; the picture is what that phone's front camera
   sees" rendered a third-person shot of a woman holding a phone, on both

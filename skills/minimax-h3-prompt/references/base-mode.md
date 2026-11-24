@@ -70,7 +70,7 @@ Shake Slightly/Strongly · POV · Roll Clockwise/Counterclockwise
 
 (Tested 2026-11-24: Shake Slightly renders as a near-still camera; Shake
 Strongly gives visible handheld wobble. "Shakes moderately" gives a gentler
-wobble on an 8-step checkpoint but nothing on a 2-step one. Lens, gear and
+wobble on one checkpoint and nothing on another. Lens, gear and
 phone words do nothing visible. See `camera-capture.md`.)
 
 Write the move as natural English action within the shot, giving motion type +
